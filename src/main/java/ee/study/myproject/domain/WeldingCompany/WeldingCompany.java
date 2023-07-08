@@ -7,9 +7,11 @@ import lombok.Data;
 @AllArgsConstructor
 public class WeldingCompany {
 
-    String companyName;
-    String companyEXC;
-    String companyAge;
+    private int id;
+    private String companyName;
+    private String companyEXC;
+    private String companyAge;
+    private String area;
 
 
 }
