@@ -33,4 +33,18 @@ public class WeldingCompanyController {
         return "New EXC: " + companyEXC;
 
     }
+
+    @DeleteMapping
+    public String delete(@RequestParam int id) {
+        System.out.println("Deleted id: " + id);
+
+        return "Deleted successfully, id: " + id;
+    }
+
+    @GetMapping("/{id}")
+    public WeldingCompany getID(@PathVariable int id) {
+        System.out.println("Get Customer by id " + id);
+
+        return new WeldingCompany(1, "Marketex", "2", "33", "Shipp building");
+    }
 }
