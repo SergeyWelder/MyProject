@@ -9,7 +9,7 @@ public class WeldingCompanyDto {
 
 
     private String companyName;
-    private String companyEXC;
+    private String companyExc;
     private String companyAge;
     private String area;
 

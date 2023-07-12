@@ -13,7 +13,7 @@ public class WeldingCompanyController {
 
         System.out.println("Welding Company " + weldcomp.getCompanyName() + " added");
 
-        return "Welding company " + weldcomp.getCompanyName() + " added! Company EXC is: " + weldcomp.getCompanyEXC() + ". Welding company age is " + weldcomp.getCompanyAge() + ".";
+        return "Welding company " + weldcomp.getCompanyName() + " added! Company EXC is: " + weldcomp.getCompanyExc() + ". Welding company age is " + weldcomp.getCompanyAge() + ".";
 
     }
 
