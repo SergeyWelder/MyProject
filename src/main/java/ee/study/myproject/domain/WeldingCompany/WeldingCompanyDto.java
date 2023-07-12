@@ -5,9 +5,9 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class WeldingCompany {
+public class WeldingCompanyDto {
 
-    private int id;
+
     private String companyName;
     private String companyEXC;
     private String companyAge;

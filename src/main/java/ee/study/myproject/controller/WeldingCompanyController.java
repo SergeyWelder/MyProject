@@ -1,6 +1,6 @@
 package ee.study.myproject.controller;
 
-import ee.study.myproject.domain.WeldingCompany.WeldingCompany;
+import ee.study.myproject.domain.WeldingCompany.WeldingCompanyDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 @RequestMapping("/weldingcompany")
 public class WeldingCompanyController {
     @PostMapping
-    public String save(@RequestBody WeldingCompany weldcomp) {
+    public String save(@RequestBody WeldingCompanyDto weldcomp) {
 
         System.out.println("Welding Company " + weldcomp.getCompanyName() + " added");
 
@@ -18,11 +18,11 @@ public class WeldingCompanyController {
     }
 
     @GetMapping
-    public List<WeldingCompany> getAll() {
+    public List<WeldingCompanyDto> getAll() {
 
         System.out.println("List of all companys");
 
-        return List.of(new WeldingCompany(1, "Lth Baas", "3", "22", "Ship Welding"));
+        return List.of(new WeldingCompanyDto("Lth Baas", "3", "22", "Ship Welding"));
 
     }
 
@@ -42,9 +42,9 @@ public class WeldingCompanyController {
     }
 
     @GetMapping("/{id}")
-    public WeldingCompany getID(@PathVariable int id) {
+    public WeldingCompanyDto getID(@PathVariable int id) {
         System.out.println("Get Customer by id " + id);
 
-        return new WeldingCompany(1, "Marketex", "2", "33", "Shipp building");
+        return new WeldingCompanyDto("Marketex", "2", "33", "Shipp building");
     }
 }
