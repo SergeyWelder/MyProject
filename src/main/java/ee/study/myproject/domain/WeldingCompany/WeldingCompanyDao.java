@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table (name = "welding_company")
+@Table(name = "welding_company")
 @Getter
 @Setter
 public class WeldingCompanyDao {

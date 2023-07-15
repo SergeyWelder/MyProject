@@ -1,50 +1,52 @@
 package ee.study.myproject.controller;
 
+import ee.study.myproject.domain.WeldingCompany.WeldingCompanyDao;
 import ee.study.myproject.domain.WeldingCompany.WeldingCompanyDto;
+import ee.study.myproject.domain.WeldingCompany.WeldingCompanyService;
+import jakarta.annotation.Resource;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/weldingcompany")
+@RequiredArgsConstructor
 public class WeldingCompanyController {
+    @Resource
+    private WeldingCompanyService weldingCompanyService;
+
     @PostMapping
-    public String save(@RequestBody WeldingCompanyDto weldcomp) {
+    public WeldingCompanyDao save(@RequestBody WeldingCompanyDto weldcomp) {
 
-        System.out.println("Welding Company " + weldcomp.getCompanyName() + " added");
 
-        return "Welding company " + weldcomp.getCompanyName() + " added! Company EXC is: " + weldcomp.getCompanyExc() + ". Welding company age is " + weldcomp.getCompanyAge() + ".";
+        return weldingCompanyService.save(weldcomp);
+        //"Welding company " + weldcomp.getCompanyName() + " added! Company EXC is: " + weldcomp.getCompanyExc() + ". Welding company age is " + weldcomp.getCompanyAge() + ".";
 
     }
 
     @GetMapping
-    public List<WeldingCompanyDto> getAll() {
+    public List<WeldingCompanyDao> getAll() {
 
-        System.out.println("List of all companys");
-
-        return List.of(new WeldingCompanyDto("Lth Baas", "3", "22", "Ship Welding"));
+        return weldingCompanyService.getAll();
 
     }
 
     @PutMapping
-    public String changeCompanyEXC(@RequestParam int id, @RequestParam String companyEXC) {
-        System.out.println("Change EXC level for: " + companyEXC);
+    public int changeCompanyEXC(@RequestParam int id, @RequestParam String companyEXC) {
 
-        return "New EXC: " + companyEXC;
+        return weldingCompanyService.changeCompanyEXC(id, companyEXC);
 
     }
 
     @DeleteMapping
-    public String delete(@RequestParam int id) {
-        System.out.println("Deleted id: " + id);
-
-        return "Deleted successfully, id: " + id;
+    public void delete(@RequestParam int id) {
+        weldingCompanyService.delete(id);
     }
 
     @GetMapping("/{id}")
-    public WeldingCompanyDto getID(@PathVariable int id) {
-        System.out.println("Get Customer by id " + id);
+    public WeldingCompanyDao getID(@PathVariable int id) {
 
-        return new WeldingCompanyDto("Marketex", "2", "33", "Shipp building");
+        return weldingCompanyService.getID(id);
     }
 }
