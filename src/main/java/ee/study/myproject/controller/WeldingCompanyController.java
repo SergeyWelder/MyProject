@@ -21,7 +21,7 @@ public class WeldingCompanyController {
 
 
         return weldingCompanyService.save(weldcomp);
-        //"Welding company " + weldcomp.getCompanyName() + " added! Company EXC is: " + weldcomp.getCompanyExc() + ". Welding company age is " + weldcomp.getCompanyAge() + ".";
+
 
     }
 
@@ -49,4 +49,10 @@ public class WeldingCompanyController {
 
         return weldingCompanyService.getID(id);
     }
-}
+
+    ////@GetMapping("/{change}")
+    //public int changeCompanyEXC(@RequestParam int id, @RequestParam String companyEXC) {
+
+       // return weldingCompanyService.changeCompanyEXC(id, companyEXC);
+    }
+    //}
